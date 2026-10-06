@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dltu1mstv5e30"]
+
+[ext_resource type="Texture2D" uid="uid://dgje25mwkm488" path="res://assets/player/RoyGBiv1.png" id="1_l40ij"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3dbj"]
+
+[node name="Player" type="CharacterBody2D" unique_id=194689285]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=707854992]
+shape = SubResource("RectangleShape2D_e3dbj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1813790732]
+texture = ExtResource("1_l40ij")
+hframes = 4
