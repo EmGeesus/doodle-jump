@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://uuk7ibuky36q"]
+
+[ext_resource type="Script" uid="uid://b5ackstn4dnxy" path="res://Scenes/boss_fight/boss_projectile/boss_projectile.gd" id="1_jcjy6"]
+[ext_resource type="Texture2D" uid="uid://cqotweqltk2rt" path="res://assets/cartoon-style-angry-rifle-cartridge-260nw-2686370525.webp" id="2_qajlw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3dbj"]
+size = Vector2(13, 6)
+
+[node name="BossProjectile" type="Area2D" unique_id=448538903 groups=["boss_hurtbox", "boss_projectiles"]]
+script = ExtResource("1_jcjy6")
+speed = null
+lifetime = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1210791131]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_e3dbj")
+
+[node name="visual" type="Node2D" parent="." unique_id=1107436648]
+
+[node name="Sprite2D" type="Sprite2D" parent="visual" unique_id=1844003339]
+scale = Vector2(0.017857147, 0.017857144)
+texture = ExtResource("2_qajlw")
