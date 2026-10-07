@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bi6inearrtqij"]
 
 [ext_resource type="Script" uid="uid://svcbfbejpehi" path="res://Scenes/player/player.gd" id="1_n056q"]
-[ext_resource type="Texture2D" uid="uid://dgje25mwkm488" path="res://Assets/player/RoyGBiv1.png" id="2_sa7oy"]
+[ext_resource type="Texture2D" uid="uid://dgje25mwkm488" path="res://assets/player/RoyGBiv1.png" id="2_sa7oy"]
 [ext_resource type="Script" uid="uid://l6comba430i8" path="res://Scenes/player/velocity_component.gd" id="3_mxepk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e3dbj"]
@@ -9,6 +9,7 @@
 [node name="Player" type="CharacterBody2D" unique_id=194689285 node_paths=PackedStringArray("velocity_component") groups=["player"]]
 script = ExtResource("1_n056q")
 velocity_component = NodePath("VelocityComponent")
+autojump = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=707854992]
 shape = SubResource("RectangleShape2D_e3dbj")

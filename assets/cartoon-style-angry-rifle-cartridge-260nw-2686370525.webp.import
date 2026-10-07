@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqotweqltk2rt"
-path="res://.godot/imported/cartoon-style-angry-rifle-cartridge-260nw-2686370525.webp-1521d2a69f14645496d79ec0b7b509e0.ctex"
+path="res://.godot/imported/cartoon-style-angry-rifle-cartridge-260nw-2686370525.webp-4a63ca732473eb5b97fa7c74aba060ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/cartoon-style-angry-rifle-cartridge-260nw-2686370525.webp"
-dest_files=["res://.godot/imported/cartoon-style-angry-rifle-cartridge-260nw-2686370525.webp-1521d2a69f14645496d79ec0b7b509e0.ctex"]
+source_file="res://assets/cartoon-style-angry-rifle-cartridge-260nw-2686370525.webp"
+dest_files=["res://.godot/imported/cartoon-style-angry-rifle-cartridge-260nw-2686370525.webp-4a63ca732473eb5b97fa7c74aba060ba.ctex"]
 
 [params]
 
