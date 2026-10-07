@@ -33,14 +33,9 @@ func _handle_color_input() -> void:
 		set_color(GameColor.Type.BLUE)
 
 func set_color(new_color: int) -> void:
-	if current_color == new_color:
-		return
 	current_color = new_color
 	_update_visual()
 	color_changed.emit(current_color)
 
 func get_current_color() -> int:
 	return current_color
-
-func _update_visual() -> void:
-	visual.modulate = GameColor.visual_color(current_color)

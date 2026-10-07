@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bevy8wvsrwn6o"]
 
-[ext_resource type="PackedScene" uid="uid://dfas7771u3ur5" path="res://Scenes/boss_fight/test_player/test_player.tscn" id="1_7e4ox"]
 [ext_resource type="Script" uid="uid://dcoqrmiyw1ufi" path="res://Scenes/boss_fight/boss_fight.gd" id="1_qd265"]
 [ext_resource type="PackedScene" uid="uid://c6whx0sulf0qs" path="res://Scenes/boss_fight/boss/boss.tscn" id="1_ri36i"]
 [ext_resource type="PackedScene" uid="uid://uuk7ibuky36q" path="res://Scenes/boss_fight/boss_projectile/boss projectile.tscn" id="2_ri36i"]
+[ext_resource type="PackedScene" uid="uid://bi6inearrtqij" path="res://Scenes/player/player.tscn" id="4_ct26d"]
 [ext_resource type="PackedScene" uid="uid://dik3fy4336l3c" path="res://Scenes/boss_fight/sequence_lights.tscn" id="4_y0yx4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e3dbj"]
@@ -19,8 +19,8 @@ projectile_scene = ExtResource("2_ri36i")
 [node name="Boss" parent="." unique_id=482610963 instance=ExtResource("1_ri36i")]
 position = Vector2(330, 38)
 
-[node name="test player" parent="." unique_id=194689285 instance=ExtResource("1_7e4ox")]
-position = Vector2(145, 252)
+[node name="Player" parent="." unique_id=194689285 instance=ExtResource("4_ct26d")]
+position = Vector2(248, 187)
 
 [node name="Arena" type="StaticBody2D" parent="." unique_id=1138686094]
 

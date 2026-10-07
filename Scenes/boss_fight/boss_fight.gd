@@ -54,8 +54,8 @@ func _shoot() -> void:
 
 	if randf() <= colored_bullet_chance:
 		var color := randi_range(
-			GameColor.Type.RED,
-			GameColor.Type.BLUE
+			ColorHandler.Type.RED,
+			ColorHandler.Type.BLUE
 		)
 
 		projectile.setup_colored(color, boss)

@@ -36,7 +36,7 @@ func setup_colored(color: int, target: Node2D) -> void:
 	boss_target = target
 	is_colored = true
 
-	visual.modulate = GameColor.visual_color(color)
+	visual.modulate = ColorHandler.translate(color)
 
 
 func setup_neutral(target: Node2D) -> void:
@@ -67,13 +67,11 @@ func _on_body_entered(body: Node) -> void:
 	if reflected:
 		return
 
-	if not body.has_method("get_current_color"):
+	if not body.is_in_group("player"):
 		return
 
 	if is_colored:
-		var player_color: int = body.call("get_current_color")
-
-		if player_color == projectile_color:
+		if ColorHandler.get_current_color() == ColorHandler.translate(projectile_color):
 			reflect()
 			return
 

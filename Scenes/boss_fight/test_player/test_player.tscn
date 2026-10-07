@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://dfas7771u3ur5"]
 
 [ext_resource type="Script" uid="uid://y840ufm7xsp7" path="res://Scenes/boss_fight/test_player/test_player.gd" id="1_13gmq"]
-[ext_resource type="Texture2D" uid="uid://dgje25mwkm488" path="res://assets/player/RoyGBiv1.png" id="2_dkitw"]
+[ext_resource type="Texture2D" uid="uid://dgje25mwkm488" path="res://Assets/player/RoyGBiv1.png" id="2_dkitw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e3dbj"]
 
 [node name="test player" type="CharacterBody2D" unique_id=194689285]
 script = ExtResource("1_13gmq")
+move_speed = null
+jump_velocity = null
+autojump = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=707854992]
 shape = SubResource("RectangleShape2D_e3dbj")

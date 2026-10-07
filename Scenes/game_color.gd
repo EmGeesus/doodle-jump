@@ -1,6 +1,7 @@
 class_name GameColor
 extends RefCounted
 
+signal color_changed
 
 enum Type {
 	RED,
@@ -8,6 +9,8 @@ enum Type {
 	BLUE
 }
 
+func emit_color_change():
+	color_changed.emit()
 
 static func visual_color(value: int) -> Color:
 	match value:

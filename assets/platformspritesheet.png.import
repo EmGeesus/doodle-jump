@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8o48ppxx5fni"
-path="res://.godot/imported/BlackNWhite1.png-d366ed50114945b0fc1cfc743ee1be0d.ctex"
+uid="uid://dygn1qjkchifb"
+path="res://.godot/imported/platformspritesheet.png-1a858e5ae90123d6548e58f1f8fc39bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/boss/BlackNWhite1.png"
-dest_files=["res://.godot/imported/BlackNWhite1.png-d366ed50114945b0fc1cfc743ee1be0d.ctex"]
+source_file="res://Assets/platformspritesheet.png"
+dest_files=["res://.godot/imported/platformspritesheet.png-1a858e5ae90123d6548e58f1f8fc39bb.ctex"]
 
 [params]
 
