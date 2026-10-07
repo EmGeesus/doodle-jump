@@ -16,7 +16,11 @@ func _physics_process(delta: float) -> void:
 		velocity_component.apply_gravity(delta)
 	elif is_on_floor():
 		velocity_component.jump(JUMP_VELOCITY)
-
+	
+	if position.x < -11:
+		position.x = 651
+	if position.x > 651:
+		position.x = -10
 	velocity_component.move(self)
 	handle_color_input()
 
@@ -39,5 +43,8 @@ func get_movement_vector() -> Vector2:
 	return Vector2(x, 0)
 
 func update_visual() -> void:
-	print(ColorHandler.get_current_color())
 	visual.modulate = ColorHandler.get_current_color()
+
+func die():
+	print("i died")
+	queue_free()
