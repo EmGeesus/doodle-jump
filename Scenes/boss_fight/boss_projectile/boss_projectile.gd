@@ -1,36 +1,52 @@
+class_name BossProjectile
 extends Area2D
+
 
 signal returned_to_boss(projectile_color: int)
 signal hit_player
 
-@export var speed := 50.0
-@export var lifetime := 8.
 
-@onready var visual: Node2D = $visual
+@export var speed := 300.0
+@export var reflected_speed_multiplier := 2.0
+@export var lifetime := 10.0
+@export var explosion_scene: PackedScene
+
 
 var projectile_color := GameColor.Type.RED
-var direction := Vector2.DOWN
-
+var is_colored := false
 var reflected := false
+var direction := Vector2.DOWN
 var age := 0.0
 
-@export var boss_target: Node2D
+var boss_target: Node2D
+
+
+@onready var visual: = $visual
 
 
 func _ready() -> void:
 	add_to_group("boss_projectile")
+
 	body_entered.connect(_on_body_entered)
 	area_entered.connect(_on_area_entered)
-	_update_visual()
 
-func setup(new_color: int, target: Node2D) -> void:
-	projectile_color = new_color
+
+func setup_colored(color: int, target: Node2D) -> void:
+	projectile_color = color
 	boss_target = target
-	if is_node_ready():
-		_update_visual()
+	is_colored = true
+
+	visual.modulate = GameColor.visual_color(color)
+
+
+func setup_neutral(target: Node2D) -> void:
+	boss_target = target
+	is_colored = false
+
+	visual.modulate = Color.WHITE
+
 
 func _physics_process(delta: float) -> void:
-	print(age)
 	age += delta
 
 	if age >= lifetime:
@@ -41,41 +57,62 @@ func _physics_process(delta: float) -> void:
 		direction = global_position.direction_to(
 			boss_target.global_position
 		)
+
 	global_position += direction * speed * delta
+
+	rotation = direction.angle()
+
 
 func _on_body_entered(body: Node) -> void:
 	if reflected:
 		return
+
 	if not body.has_method("get_current_color"):
 		return
-	var player_color: int = body.call("get_current_color")
-	if player_color == projectile_color:
-		reflect()
-	else:
-		hit_player.emit()
 
-		if body.has_method("take_hit"):
-			body.call("take_hit")
+	if is_colored:
+		var player_color: int = body.call("get_current_color")
 
-		queue_free()
+		if player_color == projectile_color:
+			reflect()
+			return
+
+	hit_player.emit()
+
+	if body.has_method("take_hit"):
+		body.call("take_hit")
+
+	queue_free()
+
+
 func reflect() -> void:
 	reflected = true
-	speed *= 1.35
+	speed *= reflected_speed_multiplier
 
 	if is_instance_valid(boss_target):
 		direction = global_position.direction_to(
 			boss_target.global_position
 		)
 
+	rotation = direction.angle()
+
 
 func _on_area_entered(area: Area2D) -> void:
 	if not reflected:
 		return
 
-	if area.is_in_group("boss_hurtbox"):
-		returned_to_boss.emit(projectile_color)
-		queue_free()
+	if not area.is_in_group("boss_hurtbox"):
+		return
+
+	returned_to_boss.emit(projectile_color)
+	_explode()
 
 
-func _update_visual() -> void:
-	visual.modulate = GameColor.visual_color(projectile_color)
+func _explode() -> void:
+	if explosion_scene != null:
+		var explosion := explosion_scene.instantiate()
+
+		get_tree().current_scene.add_child(explosion)
+		explosion.global_position = global_position
+
+	queue_free()

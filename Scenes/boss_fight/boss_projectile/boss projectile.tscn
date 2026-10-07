@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://cqotweqltk2rt" path="res://assets/cartoon-style-angry-rifle-cartridge-260nw-2686370525.webp" id="2_qajlw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e3dbj"]
-size = Vector2(48, 21)
+size = Vector2(107, 9)
 
 [node name="BossProjectile" type="Area2D" unique_id=448538903 groups=["boss_hurtbox", "boss_projectiles"]]
 script = ExtResource("1_jcjy6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1210791131]
-position = Vector2(-2, 2)
+position = Vector2(-2.5, 4.5)
 scale = Vector2(1, 5)
 shape = SubResource("RectangleShape2D_e3dbj")
 
@@ -18,6 +18,6 @@ shape = SubResource("RectangleShape2D_e3dbj")
 
 [node name="Sprite2D" type="Sprite2D" parent="visual" unique_id=1844003339]
 position = Vector2(-3.00906, 3.1617813)
-rotation = -1.5707964
 scale = Vector2(0.118913785, 0.17320415)
 texture = ExtResource("2_qajlw")
+flip_h = true
