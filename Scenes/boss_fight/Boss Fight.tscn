@@ -5,40 +5,45 @@
 [ext_resource type="PackedScene" uid="uid://uuk7ibuky36q" path="res://Scenes/boss_fight/boss_projectile/boss projectile.tscn" id="2_ri36i"]
 [ext_resource type="PackedScene" uid="uid://bi6inearrtqij" path="res://Scenes/player/player.tscn" id="4_ct26d"]
 [ext_resource type="PackedScene" uid="uid://dik3fy4336l3c" path="res://Scenes/boss_fight/sequence_lights.tscn" id="4_y0yx4"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3dbj"]
-size = Vector2(639.625, 11)
+[ext_resource type="AudioStream" uid="uid://cp8xh44eqwq7o" path="res://Assets/Vs. Dectective BW.mp3" id="6_uqhp8"]
+[ext_resource type="AudioStream" uid="uid://cvu3e3qvbqsiu" path="res://Assets/temphit.mp3" id="7_m5u1l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_quqc0"]
 size = Vector2(57, 348)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3dbj"]
+size = Vector2(639.625, 42)
+
 [node name="BossFight" type="Node2D" unique_id=1491234724]
 script = ExtResource("1_qd265")
 projectile_scene = ExtResource("2_ri36i")
+max_health = 50
+player_max_health = 10
+colored_bullet_chance = 0.1
+hit_stun_length = 0.2
+pattern_break = 0.55
 
 [node name="Boss" parent="." unique_id=482610963 instance=ExtResource("1_ri36i")]
-position = Vector2(330, 38)
+position = Vector2(322, 45)
 
 [node name="Player" parent="." unique_id=194689285 instance=ExtResource("4_ct26d")]
-position = Vector2(248, 187)
+position = Vector2(325, 302)
 
 [node name="Arena" type="StaticBody2D" parent="." unique_id=1138686094]
 
+[node name="Right Wall" type="CollisionShape2D" parent="Arena" unique_id=1732721224]
+position = Vector2(611, 175)
+shape = SubResource("RectangleShape2D_quqc0")
+
 [node name="Floor" type="CollisionShape2D" parent="Arena" unique_id=1563990280]
-position = Vector2(320.1875, 354.5)
+position = Vector2(320.1875, 339)
 shape = SubResource("RectangleShape2D_e3dbj")
 
 [node name="Left Wall" type="CollisionShape2D" parent="Arena" unique_id=1315673302]
 position = Vector2(28.5, 174)
 shape = SubResource("RectangleShape2D_quqc0")
 
-[node name="Left Wall" type="CollisionShape2D" parent="Arena/Left Wall" unique_id=1732721224]
-position = Vector2(582.5, 1)
-shape = SubResource("RectangleShape2D_quqc0")
-
 [node name="Sequence Lights" parent="." unique_id=1716842522 instance=ExtResource("4_y0yx4")]
-
-[node name="ShotTimer" type="Timer" parent="." unique_id=1727171715]
 
 [node name="Spawns" type="Node2D" parent="." unique_id=1175727733]
 
@@ -56,3 +61,55 @@ position = Vector2(541, -31)
 
 [node name="Marker5" type="Marker2D" parent="Spawns" unique_id=1916536241]
 position = Vector2(90, -24)
+
+[node name="BossTheme" type="AudioStreamPlayer" parent="." unique_id=1211627076]
+stream = ExtResource("6_uqhp8")
+parameters/looping = true
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=414581511]
+
+[node name="BossUI" type="MarginContainer" parent="UI" unique_id=1821195947]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -63.0
+offset_right = 63.0
+offset_bottom = 31.0
+grow_horizontal = 2
+
+[node name="Bars" type="VBoxContainer" parent="UI/BossUI" unique_id=1348286225]
+layout_mode = 2
+
+[node name="BossLabel" type="Label" parent="UI/BossUI/Bars" unique_id=594159146]
+layout_mode = 2
+text = "BLACK N. WHITE"
+
+[node name="BossHealthBar" type="ProgressBar" parent="UI/BossUI/Bars" unique_id=978720236]
+layout_mode = 2
+show_percentage = false
+
+[node name="PlayerUI" type="MarginContainer" parent="UI" unique_id=2054756269]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -41.0
+offset_top = -31.0
+offset_right = 41.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PlayerUI" unique_id=520933837]
+layout_mode = 2
+
+[node name="PlayerLabel" type="Label" parent="UI/PlayerUI/VBoxContainer" unique_id=1154533717]
+layout_mode = 2
+text = "ROY G. BIV"
+
+[node name="PlayerHealthBar" type="ProgressBar" parent="UI/PlayerUI/VBoxContainer" unique_id=626040123]
+layout_mode = 2
+show_percentage = false
+
+[node name="BossHit" type="AudioStreamPlayer" parent="." unique_id=1903044095]
+stream = ExtResource("7_m5u1l")

@@ -11,7 +11,6 @@ signal hit_player
 @export var lifetime := 10.0
 @export var explosion_scene: PackedScene
 
-
 var projectile_color := GameColor.Type.RED
 var is_colored := false
 var reflected := false
@@ -26,7 +25,7 @@ var boss_target: Node2D
 
 func _ready() -> void:
 	add_to_group("boss_projectile")
-
+	
 	body_entered.connect(_on_body_entered)
 	area_entered.connect(_on_area_entered)
 

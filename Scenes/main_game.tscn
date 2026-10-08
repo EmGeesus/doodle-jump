@@ -1,20 +1,19 @@
 [gd_scene format=3 uid="uid://lnj3ee4vy4v3"]
 
+[ext_resource type="Script" uid="uid://csej0c30rhj8g" path="res://Scenes/main_game.gd" id="1_6j5ir"]
 [ext_resource type="PackedScene" uid="uid://bi6inearrtqij" path="res://Scenes/player/player.tscn" id="1_l756w"]
-[ext_resource type="PackedScene" uid="uid://l5gj7xbh5ldo" path="res://Game Object/platform.tscn" id="2_pu3va"]
 [ext_resource type="Script" uid="uid://boef7otgtxoq7" path="res://Scenes/follow_cam.gd" id="3_0e3vx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l756w"]
 size = Vector2(639.625, 11)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pu3va"]
-size = Vector2(57, 348)
-
 [node name="Main_Game" type="Node2D" unique_id=1196295870]
+script = ExtResource("1_6j5ir")
 
 [node name="Player" parent="." unique_id=194689285 instance=ExtResource("1_l756w")]
 position = Vector2(262, 158)
 JUMP_VELOCITY = -700.0
+autojump = true
 
 [node name="Arena" type="StaticBody2D" parent="." unique_id=2087259900]
 
@@ -22,41 +21,8 @@ JUMP_VELOCITY = -700.0
 position = Vector2(320.1875, 354.5)
 shape = SubResource("RectangleShape2D_l756w")
 
-[node name="Left Wall" type="CollisionShape2D" parent="Arena" unique_id=325724296]
-position = Vector2(28.5, 174)
-shape = SubResource("RectangleShape2D_pu3va")
-
-[node name="Left Wall" type="CollisionShape2D" parent="Arena/Left Wall" unique_id=1549048793]
-position = Vector2(582.5, 1)
-shape = SubResource("RectangleShape2D_pu3va")
-
 [node name="follow cam" type="Camera2D" parent="." unique_id=1121854525]
 position = Vector2(320, 180)
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 script = ExtResource("3_0e3vx")
-
-[node name="platforms" type="Node2D" parent="." unique_id=731508032]
-
-[node name="platform" parent="platforms" unique_id=1158537831 instance=ExtResource("2_pu3va")]
-position = Vector2(322, 214)
-
-[node name="platform2" parent="platforms" unique_id=744924912 instance=ExtResource("2_pu3va")]
-position = Vector2(418, 122)
-
-[node name="platform3" parent="platforms" unique_id=1752282988 instance=ExtResource("2_pu3va")]
-position = Vector2(297, -132)
-
-[node name="platform4" parent="platforms" unique_id=1404085779 instance=ExtResource("2_pu3va")]
-position = Vector2(428, -73)
-
-[node name="platform5" parent="platforms" unique_id=1452411812 instance=ExtResource("2_pu3va")]
-position = Vector2(295, 30)
-
-[node name="platform6" parent="platforms" unique_id=1159354227 instance=ExtResource("2_pu3va")]
-position = Vector2(672, 33)
-scale = Vector2(13.517028, 1.4639013)
-
-[node name="platform7" parent="platforms" unique_id=405144562 instance=ExtResource("2_pu3va")]
-position = Vector2(78.00001, 32.999996)
-scale = Vector2(9.035031, 1.9226102)

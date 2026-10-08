@@ -9,6 +9,7 @@
 [node name="Player" type="CharacterBody2D" unique_id=194689285 node_paths=PackedStringArray("velocity_component") groups=["player"]]
 script = ExtResource("1_n056q")
 velocity_component = NodePath("VelocityComponent")
+autojump = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=707854992]
 shape = SubResource("RectangleShape2D_e3dbj")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cp8xh44eqwq7o"
+path="res://.godot/imported/Vs. Dectective BW.mp3-49492db5ed6180861338266c01ec4646.mp3str"
+
+[deps]
+
+source_file="res://Assets/Vs. Dectective BW.mp3"
+dest_files=["res://.godot/imported/Vs. Dectective BW.mp3-49492db5ed6180861338266c01ec4646.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
