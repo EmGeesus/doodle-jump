@@ -17,4 +17,4 @@ func _process(delta):
 		
 		position.y = max_height + 30
 		if player.position.y > position.y + 230:
-			player.die()
+			player.hurt()

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cl73w6am0d74n"]
+
+[ext_resource type="Script" uid="uid://ccf6oh6nu2lk8" path="res://Scenes/ripple.gd" id="1_1kl6l"]
+[ext_resource type="Shader" uid="uid://cjtjbcg47v3ut" path="res://Scenes/ripple.gdshader" id="2_kewlu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qb43l"]
+shader = ExtResource("2_kewlu")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/force = 0.05
+shader_parameter/size = 1.0
+shader_parameter/thickness = 0.1
+shader_parameter/tint_color = Color(1, 1, 1, 1)
+
+[node name="ripple" type="CanvasLayer" unique_id=1107154473]
+script = ExtResource("1_1kl6l")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=866631238]
+material = SubResource("ShaderMaterial_qb43l")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -4,11 +4,15 @@ extends CharacterBody2D
 @export var velocity_component: Node
 @onready var visual: Node2D = $visual
 @onready var sprite_2d = $visual/Sprite2D
+@onready var collision_shape_2d = $CollisionShape2D
+@onready var hit_particles = $HitParticles
 @export var boss_movement := false
 @export var boss_move_speed := 220.0
 @export var autojump := true
 @export var level: int = 0
+@export var lives: int = 6
 var last_direction = 1
+
 
 var yellow_lvl_num = 2
 var blue_lvl_num = 6
@@ -39,7 +43,6 @@ func _physics_process(delta: float) -> void:
 	handle_animation()
 
 func handle_animation():
-	print(velocity.x)
 	if velocity.x > 0:
 		last_direction = 1
 	if velocity.x < 0:
@@ -85,6 +88,24 @@ func get_movement_vector() -> Vector2:
 
 func update_visual() -> void:
 	visual.modulate = ColorHandler.get_current_color()
+
+
+func hurt():
+	lives -= 1
+	if lives <= 0:
+		die()
+	else:
+		if lives == 1:
+			get_parent().speak(["Darn, if I do that one more time, I don't think I'll be able to get back!"], false)
+		velocity_component.jump(JUMP_VELOCITY* 1.3)
+		collision_shape_2d.disabled = true
+		var timer = Timer.new()
+		hit_particles.emitting = true
+		timer.wait_time = .6
+		add_child(timer)
+		timer.start()
+		await timer.timeout
+		collision_shape_2d.disabled = false
 
 func die():
 	queue_free()

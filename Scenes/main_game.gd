@@ -28,8 +28,11 @@ func _process(delta):
 			win()
 
 
-func speak(input:Array):
-	player_speaking.play_animation_with_text(input)
+func speak(input:Array, priority: bool = true):
+	print(player_speaking.full_playing)
+	if (not player_speaking.full_playing) or priority:
+		player_speaking.play("RESET")
+		player_speaking.play_animation_with_text(input)
 
 func win():
 	pass

@@ -58,6 +58,8 @@ func _process(delta: float) -> void:
 
 func start_fight() -> void:
 	player_speaking.play_animation_with_text(["You, let me out of here!", "Just because I love color doesn't mean I should be jailed!"])
+	await player_speaking.full_speak_done
+	player_speaking.play_animation_boss_with_text(["I dont care! I hate you!"])
 	health = max_health
 	player_health = player_max_health
 	player_dead = false
