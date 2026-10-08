@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://cnfrwx35mh4gw"]
+
+[ext_resource type="Script" uid="uid://dq1r2opwts7r4" path="res://Scenes/player_speaking_root.gd" id="1_ixq1v"]
+[ext_resource type="Script" uid="uid://dhqofvodpl5b6" path="res://Scenes/player_speaking.gd" id="1_y44ic"]
+[ext_resource type="Texture2D" uid="uid://dgje25mwkm488" path="res://Assets/player/RoyGBiv1.png" id="2_ixq1v"]
+
+[sub_resource type="Animation" id="Animation_bb2iq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_speaking/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(75.11, 325)]
+}
+
+[sub_resource type="Animation" id="Animation_18r40"]
+resource_name = "speak"
+length = 3.0000000000000004
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_speaking/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333333, 0.26666665, 0.36666662, 0.46419048, 0.56419045, 0.6496131, 0.749613, 0.86152464, 0.96152467, 1.05306, 1.1530602, 1.2201443, 1.3201442, 1.3851907, 1.4851906, 1.5746884, 1.6746883, 1.7723367, 1.8723366, 1.9903612, 2.090361, 2.1411443, 2.2411442, 2.3123035, 2.4123034, 2.4793878, 2.5793877, 2.6811113, 2.7811112, 2.8930228, 2.9930227, 3.0666666),
+"transitions": PackedFloat32Array(0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 2.4622874),
+"update": 0,
+"values": [Vector2(75.11, 325), Vector2(75.11, 325), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 325), Vector2(75.11, 325)]
+}
+
+[sub_resource type="Animation" id="Animation_6y7pd"]
+resource_name = "start_speak"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_speaking/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(0.26794365, 0.21763763),
+"update": 0,
+"values": [Vector2(-66, 325), Vector2(75.11, 325)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6y7pd"]
+_data = {
+&"RESET": SubResource("Animation_bb2iq"),
+&"speak": SubResource("Animation_18r40"),
+&"start_speak": SubResource("Animation_6y7pd")
+}
+
+[sub_resource type="Animation" id="Animation_73nn6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(144, 500)]
+}
+
+[sub_resource type="Animation" id="Animation_r0mdn"]
+resource_name = "speak"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 3.2, 3.4666667),
+"transitions": PackedFloat32Array(0.43527544, 1, 2.7320805, 0.43527544),
+"update": 0,
+"values": [Vector2(16, -100), Vector2(16, 8), Vector2(16, 8), Vector2(16, -100)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0xqxu"]
+_data = {
+&"RESET": SubResource("Animation_73nn6"),
+&"speak": SubResource("Animation_r0mdn")
+}
+
+[node name="player_speaking" type="Node2D" unique_id=1074863751]
+script = ExtResource("1_ixq1v")
+
+[node name="Player_Speaking" type="AnimationPlayer" parent="." unique_id=1409138381]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_6y7pd")
+script = ExtResource("1_y44ic")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=676074161]
+z_index = 2
+position = Vector2(75.11, 325)
+scale = Vector2(4.783, 4.783)
+texture = ExtResource("2_ixq1v")
+hframes = 4
+frame = 3
+
+[node name="Label" type="Label" parent="." unique_id=1964488917]
+custom_maximum_size = Vector2(500, -1)
+offset_left = 144.0
+offset_top = 500.0
+offset_right = 644.0
+offset_bottom = 596.0001
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "Maybe one wall will lead me to the other wall... aybe one wall will lead me to the other wall... "
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="text animate" type="AnimationPlayer" parent="." unique_id=604058092]
+root_node = NodePath("../Player_Speaking")
+libraries/ = SubResource("AnimationLibrary_0xqxu")

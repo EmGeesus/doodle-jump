@@ -3,15 +3,139 @@
 [ext_resource type="Script" uid="uid://csej0c30rhj8g" path="res://Scenes/main_game.gd" id="1_6j5ir"]
 [ext_resource type="PackedScene" uid="uid://bi6inearrtqij" path="res://Scenes/player/player.tscn" id="1_l756w"]
 [ext_resource type="Script" uid="uid://boef7otgtxoq7" path="res://Scenes/follow_cam.gd" id="3_0e3vx"]
+[ext_resource type="Script" uid="uid://bipy66jjprwwu" path="res://Scenes/progress_bar.gd" id="4_6j5ir"]
+[ext_resource type="Script" uid="uid://dhqofvodpl5b6" path="res://Scenes/player_speaking.gd" id="5_bb2iq"]
+[ext_resource type="Texture2D" uid="uid://dgje25mwkm488" path="res://Assets/player/RoyGBiv1.png" id="6_18r40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l756w"]
 size = Vector2(639.625, 11)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6j5ir"]
+bg_color = Color(0.36858898, 0.19110346, 0.21745503, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.1882353, 0, 0, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="Gradient" id="Gradient_0e3vx"]
+offsets = PackedFloat32Array(0, 0.12645349, 0.2621124, 0.39777133, 0.54312015, 0.67877907, 0.84738374, 1)
+colors = PackedColorArray(0.7607843, 0, 1, 1, 1, 0, 0, 1, 1, 0.5450024, 0.14074606, 1, 1, 1, 0.23921569, 1, 0, 1, 0.38039216, 1, 0.19607843, 1, 1, 1, 0.42745098, 0.5568628, 1, 1, 0.7607843, 0, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bb2iq"]
+gradient = SubResource("Gradient_0e3vx")
+fill_from = Vector2(0.44230768, 0)
+fill_to = Vector2(0.47079772, 0.98361826)
+repeat = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ud1d"]
+texture = SubResource("GradientTexture2D_bb2iq")
+axis_stretch_vertical = 1
+
+[sub_resource type="Theme" id="Theme_0e3vx"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_6j5ir")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_8ud1d")
+
+[sub_resource type="Animation" id="Animation_18r40"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Player speaking/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-66, 325)]
+}
+
+[sub_resource type="Animation" id="Animation_6y7pd"]
+resource_name = "speak"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Player speaking/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333333, 0.26666665, 0.36666662, 0.46419048, 0.56419045, 0.6496131, 0.749613, 0.86152464, 0.96152467, 1.05306, 1.1530602, 1.2201443, 1.3201442, 1.3851907, 1.4851906, 1.5746884, 1.6746883, 1.7723367, 1.8723366, 1.9903612, 2.090361, 2.1411443, 2.2411442, 2.3123035, 2.4123034, 2.4793878, 2.5793877, 2.6811113, 2.7811112, 2.8930228, 2.9930227, 3.0666666),
+"transitions": PackedFloat32Array(0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 0.21763763, 2.4622874),
+"update": 0,
+"values": [Vector2(75.11, 325), Vector2(75.11, 325), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 335.04), Vector2(75.11, 314.15), Vector2(75.11, 325), Vector2(75.11, 325)]
+}
+
+[sub_resource type="Animation" id="Animation_0xqxu"]
+resource_name = "start_speak"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Player speaking/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(0.26794365, 0.21763763),
+"update": 0,
+"values": [Vector2(-66, 325), Vector2(75.11, 325)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tpqse"]
+_data = {
+&"RESET": SubResource("Animation_18r40"),
+&"speak": SubResource("Animation_6y7pd"),
+&"start_speak": SubResource("Animation_0xqxu")
+}
+
+[sub_resource type="Animation" id="Animation_73nn6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Player speaking/Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, -100)]
+}
+
+[sub_resource type="Animation" id="Animation_r0mdn"]
+resource_name = "speak"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Player speaking/Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20833343, 3.2, 3.4666667),
+"transitions": PackedFloat32Array(0.43527544, 1, 2.7320805, 0.43527544),
+"update": 0,
+"values": [Vector2(16, -100), Vector2(16, 8), Vector2(16, 8), Vector2(16, -100)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c78sm"]
+_data = {
+&"RESET": SubResource("Animation_73nn6"),
+&"speak": SubResource("Animation_r0mdn")
+}
+
 [node name="Main_Game" type="Node2D" unique_id=1196295870]
 script = ExtResource("1_6j5ir")
+chunk_length = 1000.0
 
 [node name="Player" parent="." unique_id=194689285 instance=ExtResource("1_l756w")]
-position = Vector2(262, 158)
+position = Vector2(540, 327)
 JUMP_VELOCITY = -700.0
 autojump = true
 
@@ -26,3 +150,47 @@ position = Vector2(320, 180)
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 script = ExtResource("3_0e3vx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1878666998]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1902138301]
+custom_minimum_size = Vector2(5, 356)
+custom_maximum_size = Vector2(5, -1)
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 7.0
+offset_bottom = 358.0
+theme = SubResource("Theme_0e3vx")
+value = 25.71
+fill_mode = 3
+show_percentage = false
+script = ExtResource("4_6j5ir")
+
+[node name="Player speaking" type="AnimationPlayer" parent="CanvasLayer" unique_id=2060477303]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_tpqse")
+script = ExtResource("5_bb2iq")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Player speaking" unique_id=244550021]
+z_index = 2
+position = Vector2(-66, 325)
+scale = Vector2(4.783, 4.783)
+texture = ExtResource("6_18r40")
+hframes = 4
+frame = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/Player speaking" unique_id=2050358907]
+custom_maximum_size = Vector2(500, -1)
+offset_left = 16.0
+offset_top = -100.0
+offset_right = 516.0
+offset_bottom = -3.999878
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "Maybe one wall will lead me to the other wall... aybe one wall will lead me to the other wall... "
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="text animate" type="AnimationPlayer" parent="CanvasLayer/Player speaking" unique_id=71917106]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_c78sm")

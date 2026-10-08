@@ -24,3 +24,4 @@ max_speed = 400.0
 position = Vector2(0, -4)
 texture = ExtResource("2_sa7oy")
 hframes = 4
+frame = 1

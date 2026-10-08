@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://lnj3ee4vy4v3"]
+
+[ext_resource type="Script" uid="uid://csej0c30rhj8g" path="res://Scenes/main_game.gd" id="1_6j5ir"]
+[ext_resource type="PackedScene" uid="uid://bi6inearrtqij" path="res://Scenes/player/player.tscn" id="1_l756w"]
+[ext_resource type="Script" uid="uid://boef7otgtxoq7" path="res://Scenes/follow_cam.gd" id="3_0e3vx"]
+[ext_resource type="Script" uid="uid://bipy66jjprwwu" path="res://Scenes/progress_bar.gd" id="4_6j5ir"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l756w"]
+size = Vector2(639.625, 11)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6j5ir"]
+bg_color = Color(0.36858898, 0.19110346, 0.21745503, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.1882353, 0, 0, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="Gradient" id="Gradient_0e3vx"]
+offsets = PackedFloat32Array(0, 0.12645349, 0.2621124, 0.39777133, 0.54312015, 0.67877907, 0.84738374, 1)
+colors = PackedColorArray(0.7607843, 0, 1, 1, 1, 0, 0, 1, 1, 0.5450024, 0.14074606, 1, 1, 1, 0.23921569, 1, 0, 1, 0.38039216, 1, 0.19607843, 1, 1, 1, 0.42745098, 0.5568628, 1, 1, 0.7607843, 0, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bb2iq"]
+gradient = SubResource("Gradient_0e3vx")
+fill_from = Vector2(0.44230768, 0)
+fill_to = Vector2(0.47079772, 0.98361826)
+repeat = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ud1d"]
+texture = SubResource("GradientTexture2D_bb2iq")
+axis_stretch_vertical = 1
+
+[sub_resource type="Theme" id="Theme_0e3vx"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_6j5ir")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_8ud1d")
+
+[node name="Main_Game" type="Node2D" unique_id=1196295870]
+script = ExtResource("1_6j5ir")
+chunk_length = 1000.0
+
+[node name="Player" parent="." unique_id=194689285 instance=ExtResource("1_l756w")]
+position = Vector2(262, 158)
+JUMP_VELOCITY = -700.0
+autojump = true
+
+[node name="Arena" type="StaticBody2D" parent="." unique_id=2087259900]
+
+[node name="Floor" type="CollisionShape2D" parent="Arena" unique_id=480001065]
+position = Vector2(320.1875, 354.5)
+shape = SubResource("RectangleShape2D_l756w")
+
+[node name="follow cam" type="Camera2D" parent="." unique_id=1121854525]
+position = Vector2(320, 180)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+script = ExtResource("3_0e3vx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1878666998]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1902138301]
+custom_minimum_size = Vector2(5, 356)
+custom_maximum_size = Vector2(5, -1)
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 7.0
+offset_bottom = 358.0
+theme = SubResource("Theme_0e3vx")
+value = 25.71
+fill_mode = 3
+script = ExtResource("4_6j5ir")

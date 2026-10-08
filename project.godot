@@ -27,6 +27,10 @@ window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 window/stretch/scale_mode="integer"
 
+[gui]
+
+theme/custom_font="uid://cpclshrgxogw7"
+
 [input]
 
 move_left={

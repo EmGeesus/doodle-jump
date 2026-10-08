@@ -26,6 +26,8 @@ var player_invulnerable := false
 @onready var boss_theme: AudioStreamPlayer = $BossTheme
 @onready var boss_health_bar: ProgressBar = $UI/BossUI/Bars/BossHealthBar
 @onready var player_health_bar: ProgressBar = $UI/PlayerUI/VBoxContainer/PlayerHealthBar
+@onready var player_speaking = $"UI/Player speaking"
+
 
 @onready var boss: Area2D = $Boss
 @onready var spawn_points: Array[Node] = $Spawns.get_children()
@@ -47,6 +49,7 @@ var player_dead := false
 func _ready() -> void:
 	boss.add_to_group("boss_hurtbox")
 	start_fight()
+	
 
 
 func _process(delta: float) -> void:
@@ -54,6 +57,7 @@ func _process(delta: float) -> void:
 
 
 func start_fight() -> void:
+	player_speaking.play_animation_with_text(["You, let me out of here!", "Just because I love color doesn't mean I should be jailed!"])
 	health = max_health
 	player_health = player_max_health
 	player_dead = false

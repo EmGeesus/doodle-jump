@@ -17,8 +17,6 @@ func set_color(value):
 	color = value
 
 func _on_color_changed():
-	print("current color: ", ColorHandler.get_current_color())
-	print("platform color: ", color)
 	if ColorHandler.get_current_color() == color:
 		enable()
 	else:

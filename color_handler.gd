@@ -35,7 +35,14 @@ func set_color(value: int):
 	if color_changed:
 		emit_color_change()
 
-static func get_random_color():
+static func get_random_color(level: int = 7):
+	if level <= 1:
+		return int(Type.RED)
+	if level <= 5:
+		return randi_range(
+					Type.RED,
+					Type.YELLOW
+				)
 	return randi_range(
 			Type.RED,
 			Type.BLUE
